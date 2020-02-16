@@ -7,9 +7,11 @@ MySQL.ready(function()
 	local result = MySQL.Sync.fetchAll('SELECT * FROM addon_account')
 
 	for i=1, #result, 1 do
-		local name   = result[i].name
-		local label  = result[i].label
-		local shared = result[i].shared
+		local name		= result[i].name
+		local label		= result[i].label
+		local label_sc  = result[i].label_sc
+		local label_tc  = result[i].label_tc
+		local shared 	= result[i].shared
 
 		local result2 = MySQL.Sync.fetchAll('SELECT * FROM addon_account_data WHERE account_name = @account_name', {
 			['@account_name'] = name
